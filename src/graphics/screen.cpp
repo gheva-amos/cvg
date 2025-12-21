@@ -28,5 +28,30 @@ size_t screen::width() const
   return width_;
 }
 
+void screen::fill(color c)
+{
+  style_.set_fill(c);
+}
+
+void screen::stroke(color c)
+{
+  style_.set_stroke(c);
+}
+
+void screen::stroke_width(float w)
+{
+  style_.set_stroke_width(w);
+}
+
+void screen::accept(visitor& visitor)
+{
+  visitor.visit(*this);
+
+  for (const auto& s : shapes_)
+  {
+    s->accept(visitor);
+  }
+}
+
 }
 

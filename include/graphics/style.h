@@ -10,9 +10,9 @@ class style
 {
 public:
 
-  color fill(color def=color{0, 0, 0, 255});
-  color stroke(color def=color{255, 255, 255, 255});
-  float stroke_width(float def=1.0);
+  color fill(color def=color{}) const;
+  color stroke(color def=color{0, 0, 0, 255}) const;
+  float stroke_width(float def=1.0) const;
 
   void set_fill(color c);
   void set_stroke(color c);

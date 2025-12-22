@@ -51,6 +51,7 @@ void screen::accept(visitor& visitor)
   {
     s->accept(visitor);
   }
+  visitor.done(*this);
 }
 
 }

@@ -18,17 +18,17 @@ void style::set_stroke_width(float w)
   stroke_width_ = w;
 }
 
-color style::fill(color def)
+color style::fill(color def) const
 {
   return fill_.value_or(def);
 }
 
-color style::stroke(color def)
+color style::stroke(color def) const
 {
   return stroke_.value_or(def);
 }
 
-float style::stroke_width(float def)
+float style::stroke_width(float def) const
 {
   return stroke_width_.value_or(def);
 }

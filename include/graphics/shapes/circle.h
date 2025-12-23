@@ -8,17 +8,17 @@ namespace cvg
 class circle final : public shape
 {
 public:
-  circle(size_t x, size_t y, size_t r);
+  circle(float x, float y, float r);
 
   virtual void accept(visitor& v) const override;
 
-  size_t x() const;
-  size_t y() const;
-  size_t r() const;
+  float x() const;
+  float y() const;
+  float r() const;
 private:
-  size_t x_;
-  size_t y_;
-  size_t r_;
+  float x_;
+  float y_;
+  float r_;
 };
 
 }

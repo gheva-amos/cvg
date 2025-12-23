@@ -16,7 +16,7 @@ TEST(LinkageWorks, UserGuide)
   circ.stroke_width(1);
   circ.stroke(cvg::color{0, 0, 0, 255});
   circ.fill(cvg::color{});
-  circ.move_to(screen.height() / 2, screen.width() / 2);
+  circ.move_to(screen.height() / 2.0, screen.width() / 2.0);
 
   cvg::svg_visitor visitor;
 
@@ -43,6 +43,6 @@ TEST(FirstPattern, UserGuide)
 
   screen.accept(visitor);
 
-  visitor.write(std::cout);
+  //visitor.write(std::cout);
 }
 

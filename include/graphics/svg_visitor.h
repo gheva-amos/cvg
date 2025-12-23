@@ -15,10 +15,12 @@ public:
   virtual void visit(const screen& screen) override;
   virtual void visit(const circle& c) override;
   virtual void visit(const group& g) override;
+  virtual void visit(const line& l) override;
 
   virtual void done(const screen& s) override;
   virtual void done(const circle& c) override;
   virtual void done(const group& g) override;
+  virtual void done(const line& l) override;
 
   virtual void write(std::ostream& s) const override;
 

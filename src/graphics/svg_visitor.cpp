@@ -3,6 +3,7 @@
 #include "graphics/screen.h"
 #include "graphics/shapes/circle.h"
 #include "graphics/shapes/group.h"
+#include "graphics/shapes/line.h"
 
 namespace cvg
 {
@@ -48,6 +49,20 @@ void svg_visitor::visit(const group& g)
   data_ << " >";
 }
 
+void svg_visitor::visit(const line& l)
+{
+  data_ << "<line x1=";
+  in_quotes(data_, l.x0()) <<  " y1=";
+  in_quotes(data_, l.y0()) <<  " x2=";
+  in_quotes(data_, l.x1()) <<  " y2=";
+  in_quotes(data_, l.y1()) << std::endl;
+  add_style(l.get_style());
+  data_ << std::endl;
+  add_transform(l.get_transform());
+  data_ << std::endl;
+  data_ << "/>" << std::endl;
+}
+
 void svg_visitor::done(const screen& s)
 {
   data_ << " </svg>" << std::endl;
@@ -60,6 +75,10 @@ void svg_visitor::done(const circle& c)
 void svg_visitor::done(const group& g)
 {
   data_ << " </g>" << std::endl;
+}
+
+void svg_visitor::done(const line& c)
+{
 }
 
 void svg_visitor::write(std::ostream& s) const

@@ -8,6 +8,7 @@ namespace cvg
 class screen;
 class circle;
 class group;
+class line;
 
 class visitor
 {
@@ -17,10 +18,12 @@ public:
   virtual void visit(const screen& screen) = 0;
   virtual void visit(const circle& c) = 0;
   virtual void visit(const group& g) = 0;
+  virtual void visit(const line& l) = 0;
 
   virtual void done(const screen& s) = 0;
   virtual void done(const circle& c) = 0;
   virtual void done(const group& g) = 0;
+  virtual void done(const line& l) = 0;
 
   virtual void write(std::ostream& s) const = 0;
 };
